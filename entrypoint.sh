@@ -4,6 +4,8 @@
 WP=${WP:-'crgo'}
 UUID=${UUID:-'be04add9-5c68-8bab-950c-08cd5320df18'}
 URL=${SERVER_URL:8}
+ARGO_AUTH=${ARGO_AUTH}
+ARGO_DOMAIN=${ARGO_DOMAIN}
 EXEC=$(echo $RANDOM | md5sum | head -c 6; echo)
 generate_config() {
   cat > config.json << EOF
@@ -214,7 +216,8 @@ generate_config() {
                 "type":"field",
                 "domain":[
                     "domain:openai.com",
-                    "domain:ai.com"
+                    "domain:ai.com",
+                    "domain:myip.link"
                 ],
                 "outboundTag":"WARP"
             }
